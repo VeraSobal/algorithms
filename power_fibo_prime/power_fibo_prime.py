@@ -8,17 +8,25 @@ from .matrix import Matrix
 
 def iter_power(number, power):
     """ итеративный O(N) """
-    if number == 1 or number == 0:
+    if number == 0:
+        return 0
+    if number == 1:
+        return 1
+    if power == 1:
+        return number
+    if power == 0:
         return 1
     result = 1
-    for i in range(power):
+    for _ in range(power):
         result *= number
     return result
 
 
 def recurs_power(number, power):
     """ через домножение O(N/2+LogN) = O(N) """
-    if number == 1 or number == 0:
+    if number == 0:
+        return 0
+    if number == 1:
         return 1
     if power == 1:
         return number
